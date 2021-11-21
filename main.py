@@ -49,22 +49,26 @@ def checking_result():
     #Check if player 1 has won
     player1_number_of_hits = 0
     for item in player1.items():
-        if item == "X":
-            player1_number_of_hits += 1
+        for i in item:
+            for y in i:
+                if y == 'X':
+                    player1_number_of_hits += 1
 
     #Check if player 2 has won
     player2_number_of_hits = 0
     for item in player2.items():
-        if item == "X":
-            player2_number_of_hits +=1
+        for i in item:
+            for y in i:
+                if y == 'X':
+                    player2_number_of_hits += 1
 
     #determine status and winner
     if player2_number_of_hits == 27 or player1_number_of_hits == 27:
         game_status = "Game Over"
         if player2_number_of_hits == 27:
-            winner = "Player 2"
-        else:
             winner = "Player 1"
+        else:
+            winner = "Player 2"
 
     else:
         game_status = "Keep playing"

@@ -38,7 +38,6 @@ def players_turn(inactive_player_table):
             message = "Check your position entry."
 
 
-
     return print(message)
 
 
@@ -94,15 +93,12 @@ if play.upper() == "Y":
     #Player 1 placing ships on board
     game_board.display_one_grid(player1)
     ships.placement(player1)
-    print(player1)
 
     #player 2 placing ships on board
-    game_board.display_one_grid(player2)
-    second_player.second_player_placement(player2)
-    print(player2)
+    AI_opponent.ai_placement(player2)
 
-    print("\n\n\n Let's start battle!")
-    game_board.display_two_grids(player1, player2)
+    print("\n\n Let's start battle!")
+    game_board.display_two_grids_opponent_blank(player1, player2)
 
     players = [player1, player2]
     game_status, winner = checking_result()
@@ -112,15 +108,16 @@ if play.upper() == "Y":
         opponent = players[1]
         print("\n\nPLAYER 1: ")
         players_turn(opponent)
-        game_board.display_two_grids(players[0], players[1])
+        game_board.display_two_grids_opponent_blank(players[0], players[1])
         game_status, winner = checking_result()
         if game_status == "Game Over":
             break
         else:
             opponent = players[0]
             print("\n\nPLAYER 2: ")
-            players_turn(opponent)
-            game_board.display_two_grids(players[0], players[1])
+            active_players_shot, message = AI_opponent.players_turn(opponent)
+            print("The AI went in place: " + active_players_shot + ".\n " + message)
+            game_board.display_two_grids_opponent_blank(players[0], players[1])
             game_status, winner = checking_result()
             if game_status == "Game Over":
                 break

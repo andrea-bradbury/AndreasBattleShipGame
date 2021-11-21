@@ -1,6 +1,7 @@
 def display_two_grids(player1, player2):
     """
-    Display Grid to console
+    Displays grid to console
+    Used for testing only. You can see your opponent's ships on this grid.
     """
     table_head = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     print("\n\n\n" + " " * 25 + " Your Table" + " " * 80 + "Opponent Board")
@@ -77,3 +78,36 @@ def player2_table():
             "H": [" "] * 10,
             "I": [" "] * 10,
             "J": [" "] * 10, }
+
+
+
+def display_two_grids_opponent_blank(player1, player2):
+    """
+    Display Grid to console. This function is used for the real game so you cannot see your opponent's ships until you hit them.
+    You can also track misses.
+    """
+    table_head = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    print("\n\n\n" + " " * 25 + " Your Table" + " " * 80 + "Opponent Board")
+    print(" " * 5, end="|")
+
+    # Grid Header
+    for i in table_head:
+        print(f"{i:^5}", end="|")
+    print(" " * 24, end="|")
+    for i in table_head:
+        print(f"{i:^5}", end="|")
+
+    # Grid Table
+    for key in player1:
+        print(f"\n\n{key:^5}", end="|")
+        for item in player1[key]:
+            print(f"{item:^5}", end="|")
+
+        print(" " * 20, end="")
+        print(key, end="   |")
+
+        for item in player2[key]:
+            if item == " " or item == "X" or item == "O":
+                print(f"{item:^5}", end="|")
+            else:
+                print("     ", end="|")

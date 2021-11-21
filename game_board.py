@@ -1,4 +1,4 @@
-def display_two_grids(player, opponent):
+def display_two_grids(player1, player2):
     """
     Display Grid to console
     """
@@ -14,15 +14,15 @@ def display_two_grids(player, opponent):
         print(f"{i:^5}", end="|")
 
     # Grid Table
-    for key in player:
+    for key in player1:
         print(f"\n\n{key:^5}", end="|")
-        for item in player[key]:
+        for item in player1[key]:
             print(f"{item:^5}", end="|")
 
         print(" " * 20, end="")
         print(key, end="   |")
 
-        for item in opponent[key]:
+        for item in player2[key]:
             print(f"{item:^5}", end="|")
 
 
@@ -54,10 +54,26 @@ def player1_table():
     """
     Dictionary for table grid
     """
-    return {"A": [" "] * 10, "B": [" "] * 10, "C": [" "] * 10, "D": [" "] * 10, "E": [" "] * 10,
-            "F": [" "] * 10, "G": [" "] * 10, "H": [" "] * 10, "I": [" "] * 10, "J": [" "] * 10, }
+    return {"A": [" "] * 10,
+            "B": [" "] * 10,
+            "C": [" "] * 10,
+            "D": [" "] * 10,
+            "E": [" "] * 10,
+            "F": [" "] * 10,
+            "G": [" "] * 10,
+            "H": [" "] * 10,
+            "I": [" "] * 10,
+            "J": [" "] * 10, }
 
 
 def player2_table():
-    return {"A": [" "] * 10, "B": [" "] * 10, "C": [" "] * 10, "D": [" "] * 10, "E": [" "] * 10,
-            "F": [" "] * 10, "G": [" "] * 10, "H": [" "] * 10, "I": [" "] * 10, "J": [" "] * 10, }
+    return {"A": [" "] * 10,
+            "B": [" "] * 10,
+            "C": [" "] * 10,
+            "D": [" "] * 10,
+            "E": [" "] * 10,
+            "F": [" "] * 10,
+            "G": [" "] * 10,
+            "H": [" "] * 10,
+            "I": [" "] * 10,
+            "J": [" "] * 10, }

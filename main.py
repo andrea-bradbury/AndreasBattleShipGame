@@ -105,6 +105,7 @@ if play.upper() == "Y":
 
     players = [player1, player2]
     game_status, winner = checking_result()
+
     #Taking turns firing
     while game_status == "Keep playing":
         opponent = players[1]
@@ -123,7 +124,7 @@ if play.upper() == "Y":
             if game_status == "Game Over":
                 break
 
-    print(game_status + " \n\n" + winner + "is the winner")
+    print("\n\n\n\n" + game_status + " \n\n" + winner + " is the winner")
 
 
 else:

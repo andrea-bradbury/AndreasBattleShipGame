@@ -27,12 +27,11 @@ def players_turn(inactive_player_table):
             elif inactive_player_table[alph_value][num_value-1] == " ":
                 message = "You missed."
                 inactive_player_table[alph_value][num_value-1] = "O"
-                print(inactive_player_table)
 
             else:
                 message = "You hit a ship!"
                 inactive_player_table[alph_value][num_value - 1] = "X"
-                print(inactive_player_table)
+
 
         else:
             message = "Check your position entry."
@@ -92,17 +91,20 @@ if play.upper() == "Y":
     player2 = game_board.player2_table()
 
     #Player 1 placing ships on board
+    print("\nPLAYER 1 ENTER YOUR SHIPS")
     game_board.display_one_grid(player1)
     ships.placement(player1)
-    print(player1)
+
 
     #player 2 placing ships on board
+    print("\n\n\n PLAYER 2 ENTER YOUR SHIPS")
     game_board.display_one_grid(player2)
     second_player.second_player_placement(player2)
-    print(player2)
+
 
     print("\n\n\n Let's start battle!")
-    game_board.display_two_grids(player1, player2)
+
+
 
     players = [player1, player2]
     game_status, winner = checking_result()
@@ -110,17 +112,21 @@ if play.upper() == "Y":
     #Taking turns firing
     while game_status == "Keep playing":
         opponent = players[1]
+        print("\n\n\n PLAYER 1...")
+        game_board.display_two_grids_opponent_blank(player1, player2)
         print("\n\nPLAYER 1: ")
         players_turn(opponent)
-        game_board.display_two_grids(players[0], players[1])
+        game_board.display_two_grids_opponent_blank(players[0], players[1])
         game_status, winner = checking_result()
         if game_status == "Game Over":
             break
         else:
             opponent = players[0]
+            print("\n\n\nPLAYER 2...")
+            game_board.display_two_grids_opponent_blank(players[1], players[0])
             print("\n\nPLAYER 2: ")
             players_turn(opponent)
-            game_board.display_two_grids(players[0], players[1])
+            game_board.display_two_grids_opponent_blank(players[1], players[0])
             game_status, winner = checking_result()
             if game_status == "Game Over":
                 break

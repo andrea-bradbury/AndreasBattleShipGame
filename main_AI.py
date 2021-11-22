@@ -27,12 +27,12 @@ def players_turn(inactive_player_table):
             elif inactive_player_table[alph_value][num_value-1] == " ":
                 message = "You missed."
                 inactive_player_table[alph_value][num_value-1] = "O"
-                print(inactive_player_table)
+
 
             else:
                 message = "You hit a ship!"
                 inactive_player_table[alph_value][num_value - 1] = "X"
-                print(inactive_player_table)
+
 
         else:
             message = "Check your position entry."

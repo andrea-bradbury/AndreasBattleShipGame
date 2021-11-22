@@ -28,6 +28,7 @@ def ai_placement(player2):
             boat_type = ["PB", "PB", "D", "D", "C", "S", "S", "S", "B", "AC"]
             player2, place = place_ship(player2, alp_value, int(num_value), ship_direction, boat_type[boat_number])
             if place:
+                print(boat_type[boat_number] + " " + ship_position + " " + str(ship_direction))
                 boat_number += 1
                 if boat_number == max_ship:
                     placing = False
@@ -294,12 +295,12 @@ def players_turn(inactive_player_table):
     elif inactive_player_table[alp_value][int(num_value)-1] == " ":
         message = "AI missed."
         inactive_player_table[alp_value][int(num_value)-1] = "O"
-        print(inactive_player_table)
+
 
     else:
         message = "AI hit a ship!"
         inactive_player_table[alp_value][int(num_value) - 1] = "X"
-        print(inactive_player_table)
+
 
 
     return active_players_shot, message

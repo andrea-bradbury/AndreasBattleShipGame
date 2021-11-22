@@ -44,7 +44,7 @@ This continues until one player has hit all of their opponent's ships. (This doe
 The game displays the end of the game and the winner.
 
 
-Notes: 
+# Notes: 
 As part of the requirements of this project I have identified open source code which I have adapted for my project. 
 The ships.py and game_board.py files are based upon the excellent work of Vushesh Dookheea https://github.com/VusheshDookheea , sourced November 2021.
 This code was collected and used under the MIT license. 

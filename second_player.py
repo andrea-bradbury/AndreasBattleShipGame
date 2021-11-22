@@ -1,5 +1,10 @@
 import ships
 
+"""
+This is the template for player 2's placement of ships. 
+I have kept this as a separate file as I intended to convert this into a AI opponent at another time.
+"""
+
 def second_player_placement(player2):
     player2 = player2
     boat_number = 0

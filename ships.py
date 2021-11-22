@@ -1,6 +1,15 @@
 from game_board import display_one_grid
 from game_board import display_two_grids
 
+"""
+This is for all manipulation of placing the ships. It has numerous validations for placing the ships. 
+This file was largely based upon the excellent work of Vushesh Dookheea https://github.com/VusheshDookheea , sourced November 2021.
+As part of the requirements of this project I have identified open source code which I have adapted for my project. 
+This code was collected and used under the MIT license. 
+
+When writing my AI opponent I discovered some small bugs in this code, which I will fix in the AI_opponent.py file.
+"""
+
 type_of_ships = ["Patrol Boat", "Patrol Boat", "Destroyer", "Destroyer", "Cruiser", "Submarine", "Submarine",
                  "Submarine", "Battleship", "Aircraft Carrier"]
 

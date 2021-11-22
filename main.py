@@ -1,15 +1,12 @@
-import AI_opponent
 import second_player
 import game_board
 import ships
 
 
-
-
 def players_turn(inactive_player_table):
     """
     This function takes the active player's turn and returns a message of whether the player
-    Hit, Missed or Sunk.
+    Hit or Missed.
 
     :return: the message for the active player on their turn
     """
@@ -32,18 +29,15 @@ def players_turn(inactive_player_table):
                 message = "You hit a ship!"
                 inactive_player_table[alph_value][num_value - 1] = "X"
 
-
         else:
             message = "Check your position entry."
-
-
 
     return print(message)
 
 
 def checking_result():
     """
-    This function checks if either player has won and returns the status of the game / winner.
+    This function checks if either player has won and returns the status of the game & winner if there is one.
     """
 
     #Check if player 1 has won
@@ -74,65 +68,75 @@ def checking_result():
         game_status = "Keep playing"
         winner = ""
 
-
     return game_status, winner
 
 
-"""
-Main game play
-"""
 
+"""
+Main game play is written below. 
+This game allows for two human players to play each other. 
+It assumes that while the active player is taking their turn, the inactive player cannot look at the screen.
+
+"""
 
 play = input("Let's play? Y/N : ")
 if play.upper() == "Y":
 
-    #The game boards are held here
+    #The game boards for both players are held here
     player1 = game_board.player1_table()
     player2 = game_board.player2_table()
+    #Used for determining who's turn it is
+    players = [player1, player2]
 
     #Player 1 placing ships on board
     print("\nPLAYER 1 ENTER YOUR SHIPS")
     game_board.display_one_grid(player1)
     ships.placement(player1)
 
-
-    #player 2 placing ships on board
+    #Player 2 placing ships on board
     print("\n\n\n PLAYER 2 ENTER YOUR SHIPS")
     game_board.display_one_grid(player2)
     second_player.second_player_placement(player2)
 
-
     print("\n\n\n Let's start battle!")
 
-
-
-    players = [player1, player2]
+    #Just a safety check for testing
     game_status, winner = checking_result()
 
-    #Taking turns firing
+    #This loop will continue until the checking_results function returns a winner
+    #Players take turns firing
     while game_status == "Keep playing":
         opponent = players[1]
         print("\n\n\n PLAYER 1...")
+        #Display the table for player 1
+        #You can use the function display_two_grids(player1, player2) for testing if you want to see where the opponent has placed their ships
         game_board.display_two_grids_opponent_blank(player1, player2)
         print("\n\nPLAYER 1: ")
+        #This function accepts player 1's turn and returns the outcome of that fire
         players_turn(opponent)
+        #The outcome is displayed on the table
         game_board.display_two_grids_opponent_blank(players[0], players[1])
+        #Check if anyone has won from this turn
         game_status, winner = checking_result()
         if game_status == "Game Over":
             break
         else:
             opponent = players[0]
             print("\n\n\nPLAYER 2...")
+            # Display the table for player 2
+            # You can use the function display_two_grids(player1, player2) for testing if you want to see where the opponent has placed their ships
             game_board.display_two_grids_opponent_blank(players[1], players[0])
             print("\n\nPLAYER 2: ")
+            # This function accepts player 2's turn and returns the outcome of that fire
             players_turn(opponent)
+            # The outcome is displayed on the table
             game_board.display_two_grids_opponent_blank(players[1], players[0])
+            # Check if anyone has won from this turn
             game_status, winner = checking_result()
             if game_status == "Game Over":
                 break
-
+    #Print outcome of game
     print("\n\n\n\n" + game_status + " \n\n" + winner + " is the winner")
-
 
 else:
     print("Ok see you another time.")

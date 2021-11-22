@@ -1,4 +1,4 @@
-# AndreasBattleShipGame
+# Andreas Battleship Game
 
 Aim: To build a fully functional game of battleships in python that is played within the console. 
 

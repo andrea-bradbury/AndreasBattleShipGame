@@ -8,6 +8,8 @@ This project has two versions:
 
 # Two human players game
 
+To play, run main.py
+
 Start the game and player 1 is invited to place their ships on the board using grid locations (A10, G4 ect)
 They are then prompted to enter the direction they want this ship to face (1. Left, 2.Right, 3. Top, 4. Bottom)
 They continue until all their ships have been placed correctly. 
@@ -24,6 +26,8 @@ The game displays the end of the game and the winner.
 
 
 # One human player, one AI player game
+
+To play run main_AI.py
 
 Start the game and player 1 (the human) is invited to place their ships on the board using grid locations (A10, G4 ect)
 They are then prompted to enter the direction they want this ship to face (1. Left, 2.Right, 3. Top, 4. Bottom)
